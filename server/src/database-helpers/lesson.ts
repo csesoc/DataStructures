@@ -45,4 +45,14 @@ export class LessonMongoService {
             throw new Error(err.message)
         }
     }
+
+    public async updateLessonById(lessonId : string, quizes : string[]): Promise<Lesson> {
+        try {
+            const update = { 'quizs' : quizes }
+            const returnData = (await LessonModel.findByIdAndUpdate(lessonId, update, { new : true, useFindAndModify : false })) as Lesson;
+            return returnData;
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    }
 }
