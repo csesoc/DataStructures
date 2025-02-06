@@ -15,7 +15,7 @@ RUN npm run build
 
 # ===== Stage 2: Setting up NGINX =====
 
-FROM nginx:1.25.2-alpine
+FROM nginx:1.27.4-alpine
 
 # From stage 1, copy the build files into the default directory that NGINX serves files from.
 # The project will serve requests inbound at port 80 in the container
